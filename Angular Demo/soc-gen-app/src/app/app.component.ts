@@ -26,11 +26,6 @@ firebase.initializeApp({
     authDomain: "soc-gen.firebaseapp.com"
 });
 
-    this.ds.getApiData().subscribe(
-       data=>this.users=data,
-       err=>console.log(err.status + " "+err.statusText),
-       ()=>console.log("Completed")
-      
-      );
+    
   }
 }

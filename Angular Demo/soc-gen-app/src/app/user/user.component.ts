@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { User } from "../model/User";
+import { DataService } from "../services/data.service";
 
 @Component({
     selector: "app-user",
@@ -8,28 +9,33 @@ import { User } from "../model/User";
 })
 export class UserComponent {
     @Input('titleName')
-    title:string;
-    @Input ('userInfos')
-    users:User[];
+    title: string;
+    @Input('userInfos')
+    users: User[];
 
-    myclasses={
-        border:true,
-        text:false
+    myclasses = {
+        border: true,
+        text: false
     }
-
-    moreInfo(user){
+    constructor(private ds: DataService) { }
+    moreInfo(user) {
         alert(`Company of ${user.fname} is ${user.company}`);
-        this.myclasses.border=false;
-        this.myclasses.text=true;
+        this.myclasses.border = false;
+        this.myclasses.text = true;
 
     }
     // ngOnChanges(){
     //     console.log("ngOnChanges");
     // }
 
-    // ngOnInit(){
-    //     console.log("ngOnInit");
-    // }
+    ngOnInit() {
+        this.ds.getApiData().subscribe(
+            data => this.users = data,
+            err => console.log(err.status + " " + err.statusText),
+            () => console.log("Completed")
+
+        );
+    }
 
     // ngDoCheck(){
     //     console.log("ngDoCheck");
