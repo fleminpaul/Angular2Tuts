@@ -18,6 +18,8 @@ import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { LoggerInterceptorService } from './services/logger-interceptor.service';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.route';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { LoggerInterceptorService } from './services/logger-interceptor.service'
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [DataService,AuthService,{
     provide : HTTP_INTERCEPTORS,
