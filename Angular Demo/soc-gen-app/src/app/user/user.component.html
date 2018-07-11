@@ -1,0 +1,35 @@
+<h1>{{title}}</h1>
+<div class="container">
+    <input type="text" [(ngModel)]=title id="">
+</div>
+<div class="container">
+    <ul class="list-unstyled">
+            <li class="well" *ngFor="let user of users">
+                <div class="row">
+                    <div class="col-xs-2 col-sm-2 col-md-2">
+                        <img [src]="user.image" [style.width.px]="100" [style.height.px]="100" class="img-responsive img-circle">
+                        <button class="btn btn-info btn-sm" (click)="moreInfo(user)">MoreInfo</button>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <h3 apphighlighter  [txtColor]="'white'" 
+                                            [bkColor]="'grey'" 
+                                            [dbkColor]="'transparent'" 
+                                            [dtxtColor]="'royalBlue'"> {{user.fname}} {{user.lname}}</h3>
+                        <p [ngClass]="myclasses">Date of Birth:
+                            <span [innerHTML]="user.dob | date:'dd-MM-yy'"></span>
+                        </p>
+                        <p *appUser="user.isworking">
+                                AppUnless Works!
+                        </p>
+                        <p *ngIf="user.isworking;else ElseTemplate">income:{{user.income | currency:'INR'}}</p>
+                        <em>Total Votes:{{user.votes}}
+                            <input type="number" [(ngModel)]="user.votes">
+                        </em>
+                    </div>
+                </div>
+            <ng-template #ElseTemplate>
+                <p> Not working </p>
+            </ng-template>
+            </li>
+    </ul>
+</div>

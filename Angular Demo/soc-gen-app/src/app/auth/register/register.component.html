@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <form [formGroup]="registerForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" class="form-control" [formControl]="username">
+      <div [hidden]="username.valid||username.untouched">
+        <div [hidden]="!username.hasError('required')">
+          Mandatory Field.
+        </div>
+        <div [hidden]="!username.hasError('minlength')">
+          Minimum 6 character required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" class="form-control" [formControl]="password">
+      <div [hidden]="password.valid ||password.untouched">
+        <div [hidden]="!password.hasError('required')">
+          Missing password
+        </div>
+        <div [hidden]="!password.hasError('minlength')">
+            Minimum 6 character required.
+          </div>
+        <div [hidden]="!password.hasError('needExclamation')">
+            Need '!' in password
+          </div>
+      </div>
+    </div>
+    <button [disabled]="registerForm.invalid" class="btn btn-lg btn-success" (click)="register()"> Register</button>
+  </form>
+</div>

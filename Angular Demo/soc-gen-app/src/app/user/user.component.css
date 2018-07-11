@@ -1,0 +1,19 @@
+h1{
+    color:red;
+}
+
+h3{
+    color:royalblue;}
+
+
+.border
+{
+    border-color: crimson;
+    border-style: solid;
+    border-width:2px;
+}
+
+.text
+{
+    text-decoration: underline;
+}
