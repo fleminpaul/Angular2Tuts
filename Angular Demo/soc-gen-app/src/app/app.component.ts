@@ -3,6 +3,7 @@ import { USER_DATA } from './mocks';
 import { User } from './model/User';
 import { DataService } from './services/data.service';
 import * as firebase from 'firebase';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private ds:DataService){}
+  constructor(private ds:DataService,private auth:AuthService){}
   title = 'app';
   users: User[];
   ngOnInit() {
