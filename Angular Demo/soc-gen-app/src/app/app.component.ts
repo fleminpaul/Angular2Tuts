@@ -11,7 +11,7 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private ds:DataService,private auth:AuthService){}
+  constructor(private ds: DataService, private auth: AuthService) { }
   title = 'app';
   users: User[];
   ngOnInit() {
@@ -20,13 +20,16 @@ export class AppComponent {
     //    data=>this.users=data,
     //    err=>console.log(err.status + " "+err.statusText),
     //    ()=>console.log("Completed")
-      
-    //   );
-firebase.initializeApp({
-  apiKey: "AIzaSyBLsrZ15kr5sgGwQZWaNQg-aqrb4oZjEeg",
-    authDomain: "soc-gen.firebaseapp.com"
-});
 
-    
+    //   );
+    firebase.initializeApp({
+      apiKey: "AIzaSyBLsrZ15kr5sgGwQZWaNQg-aqrb4oZjEeg",
+      authDomain: "soc-gen.firebaseapp.com"
+    });
+
+   
+  }
+   logout(){
+    this.auth.logoutUser();
   }
 }

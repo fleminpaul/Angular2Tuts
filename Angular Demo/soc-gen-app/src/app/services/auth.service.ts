@@ -3,6 +3,13 @@ import * as firebase from 'firebase'
 import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
+  logoutUser(): any {
+    firebase.auth().signOut().then(res=>{
+      console.log("logout",res);
+      this.token=null;
+      this.router.navigate(['']);
+    })
+  }
  private token:any = null;
   constructor(private router:Router) { }
   registerUser(username: string, password: string) {
