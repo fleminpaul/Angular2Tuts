@@ -24,6 +24,7 @@ import { LoginGuardService } from './services/login-guard.service';
 import { ProductsComponent } from './products/products.component';
 import { OverviewComponent } from './products/overview/overview.component';
 import { SpecificationComponent } from './products/specification/specification.component';
+import { EmployeeModule } from './employee-module/employee.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { SpecificationComponent } from './products/specification/specification.c
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
+    EmployeeModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [DataService, AuthService, LoginGuardService, {

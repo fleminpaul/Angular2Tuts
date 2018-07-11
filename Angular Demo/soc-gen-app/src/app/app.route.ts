@@ -7,6 +7,7 @@ import { LoginGuardService } from './services/login-guard.service';
 import { ProductsComponent } from './products/products.component';
 import { OverviewComponent } from './products/overview/overview.component';
 import { SpecificationComponent } from './products/specification/specification.component';
+import { EmployeeComponent } from './employee-module/employee/employee.component';
 export const APP_ROUTES: Routes = [{
     path: '',
     redirectTo: 'login',
@@ -54,6 +55,10 @@ export const APP_ROUTES: Routes = [{
         }
     ]
 },
+{
+    path: 'employee',
+    component: EmployeeComponent,
+}, 
 {
     path: '**',
     redirectTo: 'Login',
