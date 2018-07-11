@@ -4,6 +4,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { UserComponent } from './user/user.component';
 import { LoginGuardService } from './services/login-guard.service';
+import { ProductsComponent } from './products/products.component';
+import { OverviewComponent } from './products/overview/overview.component';
+import { SpecificationComponent } from './products/specification/specification.component';
 export const APP_ROUTES: Routes = [{
     path: '',
     redirectTo: 'login',
@@ -26,6 +29,31 @@ export const APP_ROUTES: Routes = [{
     component: UserComponent,
     canActivate:[LoginGuardService]
 }, 
+{
+    path: 'products',
+    component: ProductsComponent,
+    canActivate:[LoginGuardService],
+    children:[
+        {
+            path:'',
+            redirectTo:'overview',
+            pathMatch:'full'
+        },
+        {
+            path:'overview',
+            component:OverviewComponent
+        },
+        {
+            path:'specification',
+            component:SpecificationComponent
+        },
+        {
+            path:'**',
+            redirectTo:'overview',
+            pathMatch:'full'
+        }
+    ]
+},
 {
     path: '**',
     redirectTo: 'Login',

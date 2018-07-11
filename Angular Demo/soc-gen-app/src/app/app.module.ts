@@ -21,6 +21,9 @@ import { LoggerInterceptorService } from './services/logger-interceptor.service'
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.route';
 import { LoginGuardService } from './services/login-guard.service';
+import { ProductsComponent } from './products/products.component';
+import { OverviewComponent } from './products/overview/overview.component';
+import { SpecificationComponent } from './products/specification/specification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,10 @@ import { LoginGuardService } from './services/login-guard.service';
     FilterPipe,
     LoginComponent,
     UserDirective,
-    RegisterComponent],
+    RegisterComponent,
+    ProductsComponent,
+    OverviewComponent,
+    SpecificationComponent],
   imports: [
     BrowserModule,
     FormsModule,

@@ -40,6 +40,7 @@
     <li *ngIf='auth.isAuthenticated()'><a [routerLink]="['register']">Register</a></li>
     <li *ngIf='auth.isAuthenticated()'><a [routerLink]="['pipe']">Pipe Demo</a></li>
     <li *ngIf='auth.isAuthenticated()'><a [routerLink]="['user']">User Demo</a></li>
+    <li *ngIf='auth.isAuthenticated()'><a [routerLink]="['products']">Products</a></li>
     <ng-template #Logout>
       <button class="btn btn-danger" (click)="logout()">Logout</button>
     </ng-template>
