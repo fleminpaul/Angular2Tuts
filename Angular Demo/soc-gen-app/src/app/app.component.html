@@ -36,7 +36,7 @@
 
 <div class="container">
   <ul class="list-unstyled nav navbar-nav navbar-default">
-    <li *ngIf='!this.auth.isAuthenticated()'><a [routerLink]="['']">Home</a></li>
+    <li *ngIf='!this.auth.isAuthenticated() '><a [routerLink]="['']">Home</a></li>
     <li *ngIf='auth.isAuthenticated()'><a [routerLink]="['register']">Register</a></li>
     <li *ngIf='auth.isAuthenticated()'><a [routerLink]="['pipe']">Pipe Demo</a></li>
     <li *ngIf='auth.isAuthenticated()'><a [routerLink]="['user']">User Demo</a></li>
