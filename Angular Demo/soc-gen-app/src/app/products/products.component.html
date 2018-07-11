@@ -3,8 +3,8 @@
 </div>
 
 <ul class="list-unstyled">
-  <li><a [routerLink]="['overview']">Overview</a></li>
-  <li><a [routerLink]="['specification']">Specification</a></li>
+  <li><a [routerLink]="['overview',5]">Overview</a></li>
+  <li><a [routerLink]="['specification']"[queryParams]="{'name':'IphoneX'}">Specification</a></li>
 </ul>
 
 <router-outlet></router-outlet>

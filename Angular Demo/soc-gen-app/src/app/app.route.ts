@@ -40,7 +40,7 @@ export const APP_ROUTES: Routes = [{
             pathMatch:'full'
         },
         {
-            path:'overview',
+            path:'overview/:id',
             component:OverviewComponent
         },
         {
