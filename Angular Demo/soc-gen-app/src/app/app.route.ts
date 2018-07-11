@@ -12,53 +12,57 @@ export const APP_ROUTES: Routes = [{
     path: '',
     redirectTo: 'login',
     pathMatch: "full"
-}, 
+},
 {
     path: 'login',
     component: LoginComponent
-}, 
+},
 {
     path: 'register',
     component: RegisterComponent
 },
- {
+{
     path: 'pipe',
     component: PipeDemoComponent
-}, 
+},
 {
     path: 'user',
     component: UserComponent,
-    canActivate:[LoginGuardService]
-}, 
+    canActivate: [LoginGuardService]
+},
 {
     path: 'products',
     component: ProductsComponent,
-    canActivate:[LoginGuardService],
-    children:[
+    canActivate: [LoginGuardService],
+    children: [
         {
-            path:'',
-            redirectTo:'overview',
-            pathMatch:'full'
+            path: '',
+            redirectTo: 'overview',
+            pathMatch: 'full'
         },
         {
-            path:'overview/:id',
-            component:OverviewComponent
+            path: 'overview/:id',
+            component: OverviewComponent
         },
         {
-            path:'specification',
-            component:SpecificationComponent
+            path: 'specification',
+            component: SpecificationComponent
         },
         {
-            path:'**',
-            redirectTo:'overview',
-            pathMatch:'full'
+            path: '**',
+            redirectTo: 'overview',
+            pathMatch: 'full'
         }
     ]
 },
 {
     path: 'employee',
     component: EmployeeComponent,
-}, 
+},
+{
+    path: 'lazy',
+    loadChildren: 'app/lazy/lazy.module#LazyModule'
+},
 {
     path: '**',
     redirectTo: 'Login',
